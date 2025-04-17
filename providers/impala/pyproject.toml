@@ -1,0 +1,33 @@
+[project]
+name = "impala"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "mingminyu", email = "yu_mingm623@163.com" }
+]
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+impala = "impala:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "rocketx",
+    "rocketx-providers-common-sql",
+    "impyla"
+]
+
+[tool.uv.sources]
+rocketx = { workspace = true }
+
+[project.entry-points."rocketx_provider"]
+provider_info = "rocketx.providers.impala.get_provider_info:get_provider_info"
+
+[tool.flit.module]
+name = "rocketx.providers.impala"

@@ -1,12 +1,21 @@
 [project]
 name = "rocketx"
 version = "0.1.0"
-description = "Add your description here"
+description = "Automatically generate machine learning models"
 readme = "README.md"
 authors = [
     { name = "mingminyu", email = "yu_mingm623@163.com" }
 ]
 requires-python = ">=3.12"
+keywords = [ "rocketx", "machine learning", "chart", "report", "pipelines", "automation" ]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Framework :: RocketX",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Machine Learning :: Automation",
+]
 dependencies = []
 
 [project.scripts]
@@ -15,3 +24,14 @@ rx = "rocketx:main"
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[tool.uv.sources]
+rocketx = { workspace = true }
+
+[tool.uv.workspace]
+members = [
+    ".",
+    "providers/impala",
+    "providers/hive",
+    "providers/hdfs",
+]
